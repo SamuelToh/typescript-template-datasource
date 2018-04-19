@@ -41,6 +41,12 @@ module.exports = function(grunt) {
         flatten: true,
         src: ['src/plugin.json', 'LICENSE', 'README.md'],
         dest: 'dist/'
+      },
+      dist_ext: {
+        expand: true,
+        flatten: true,
+        src: ['src/external/*.js'],
+        dest: 'dist/external/'
       }
     },
 
@@ -73,6 +79,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'clean',
     'copy:dist_js',
+    'copy:dist_ext',
     'typescript:build',
     'copy:dist_html',
     'copy:dist_css',

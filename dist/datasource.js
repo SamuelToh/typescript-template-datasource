@@ -1,8 +1,13 @@
 ///<reference path="../node_modules/grafana-sdk-mocks/app/headers/common.d.ts" />
-System.register([], function(exports_1) {
+///<reference path="header/library.d.ts" />
+System.register(['plugins/orgname-pluginname-datasource/external/library.js'], function(exports_1) {
+    var library_js_1;
     var ChangeMyNameDatasource;
     return {
-        setters:[],
+        setters:[
+            function (library_js_1_1) {
+                library_js_1 = library_js_1_1;
+            }],
         execute: function() {
             ChangeMyNameDatasource = (function () {
                 /** @ngInject */
@@ -10,6 +15,7 @@ System.register([], function(exports_1) {
                     this.backendSrv = backendSrv;
                     this.templateSrv = templateSrv;
                     this.$q = $q;
+                    console.log("Message from your external library: " + library_js_1.default.eval());
                     this.name = instanceSettings.name;
                     this.id = instanceSettings.id;
                 }

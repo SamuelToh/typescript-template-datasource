@@ -1,4 +1,5 @@
 /// <reference path="../node_modules/grafana-sdk-mocks/app/headers/common.d.ts" />
+/// <reference path="header/library.d.ts" />
 export default class ChangeMyNameDatasource {
     private backendSrv;
     private templateSrv;
